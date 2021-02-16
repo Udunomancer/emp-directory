@@ -5,7 +5,7 @@ import UsersAPI from "../../utils/UsersAPI/UsersAPI";
 function Directory() {
     
     useEffect(() => {
-        UsersAPI.getRandomUser()
+        UsersAPI.getRandomUsers(5)
           .then(res => console.log(res));
     }, []);
 
