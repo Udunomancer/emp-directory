@@ -8,11 +8,6 @@ function Directory() {
         UsersAPI.getRandomUser()
           .then(res => console.log(res));
     }, []);
-    // useEffect(() => {
-    //     UsersAPI.getRandomUser()
-    //       .then(res => console.log(res));
-    //     })
-    // },[]);
 
     return (
         <>
