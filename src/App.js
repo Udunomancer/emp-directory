@@ -1,7 +1,10 @@
 import './App.css';
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
+    <>
+    <Navbar/>
     <div className="container">
       <header className="App-header">
         <p>
@@ -17,6 +20,7 @@ function App() {
         </a>
       </header>
     </div>
+    </>
   );
 }
 
