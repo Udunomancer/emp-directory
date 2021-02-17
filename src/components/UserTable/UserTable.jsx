@@ -14,7 +14,9 @@ function UserTable({users}) {
         </tr>
       </thead>
       <tbody>
-          <UserRow key={users[0].id} user={users[0]}/>
+          {users.map(user => {
+              return <UserRow key={user.id} user={user} />
+          })}
       </tbody>
     </table>
   );
