@@ -33,7 +33,7 @@ function Directory() {
     nameSearch: "",
     phoneSearch: "",
     emailSearch: "",
-    addressSearch: ""
+    addressSearch: "",
   });
 
   useEffect(() => {
@@ -47,42 +47,50 @@ function Directory() {
   }, [usersState]);
 
   useEffect(() => {
-    if(searchState.display) {
-      const filteredArray = usersState.filter(function(user) {
+    if (searchState.display) {
+      const filteredArray = usersState.filter(function (user) {
         return (
-          (user.name.first + " " + user.name.last).toUpperCase().includes(searchState.nameSearch.toUpperCase())
-          && user.phone.toUpperCase().includes(searchState.phoneSearch.toUpperCase())
-          && user.email.toUpperCase().includes(searchState.emailSearch.toUpperCase())
-          && (user.location.street.number + " " + user.location.street.name).toUpperCase().includes(searchState.addressSearch.toUpperCase())
-        )
-      })
+          (user.name.first + " " + user.name.last)
+            .toUpperCase()
+            .includes(searchState.nameSearch.toUpperCase()) &&
+          user.phone
+            .toUpperCase()
+            .includes(searchState.phoneSearch.toUpperCase()) &&
+          user.email
+            .toUpperCase()
+            .includes(searchState.emailSearch.toUpperCase()) &&
+          (user.location.street.number + " " + user.location.street.name)
+            .toUpperCase()
+            .includes(searchState.addressSearch.toUpperCase())
+        );
+      });
       setDisplayState(filteredArray);
     } else {
       setDisplayState(usersState);
     }
-  }, [searchState])
+  }, [searchState]);
 
   function handleInputChange(event) {
     const value = event.target.value;
     const name = event.target.name;
-    setSearchState({...searchState, [name]: value});
+    setSearchState({ ...searchState, [name]: value });
   }
 
   function handleSearchToggle(event) {
     const value = !(event.target.value === "true");
-    if(value) {
+    if (value) {
       setSearchState({
         ...searchState,
-        display: value
-      })
+        display: value,
+      });
     } else {
       setSearchState({
-        display: value, 
-        nameSearch: "", 
-        phoneSearch: "", 
-        emailSearch: "", 
-        addressSearch: ""
-      })
+        display: value,
+        nameSearch: "",
+        phoneSearch: "",
+        emailSearch: "",
+        addressSearch: "",
+      });
     }
   }
 
@@ -127,12 +135,12 @@ function Directory() {
     <>
       <Navbar />
       <Container>
-        <UserTable 
+        <UserTable
           handleInputChange={handleInputChange}
           handleSearchToggle={handleSearchToggle}
           searchState={searchState}
-          sort={sortUsers} 
-          users={displayState} 
+          sort={sortUsers}
+          users={displayState}
         />
       </Container>
     </>
