@@ -20,10 +20,7 @@ export default {
                       zipcode: results[i].location.postcode
                   },
                   email: results[i].email,
-                  phone: {
-                      default: results[i].phone,
-                      cell: results[i].cell
-                  },
+                  phone: results[i].phone,
                   picture: results[i].picture.thumbnail
               }
               users.push(user);

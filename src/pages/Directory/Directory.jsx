@@ -6,8 +6,46 @@ import UsersAPI from "../../utils/UsersAPI/UsersAPI";
 
 function Directory() {
     
-    const [usersState, setUsersState] = useState({});
-    const [displayState, setDisplayState] = useState(usersState);
+    const [usersState, setUsersState] = useState([{
+        id: 1,
+        name: {
+            first: "First",
+            last: "Last",
+            title: "Title"
+        },
+        location: {
+            street: {
+                name: "Street",
+                number: "123"
+            },
+            city: "City",
+            state: "State",
+            zipcode: "Zipcode"
+        },
+        email: "Email",
+        phone: "(123)-456-7890",
+        picture: "#"
+    }]);
+    const [displayState, setDisplayState] = useState([{
+        id: 1,
+        name: {
+            first: "First",
+            last: "Last",
+            title: "Title"
+        },
+        location: {
+            street: {
+                name: "Street",
+                number: "123"
+            },
+            city: "City",
+            state: "State",
+            zipcode: "Zipcode"
+        },
+        email: "Email",
+        phone: "(123)-456-7890",
+        picture: "#"
+    }]);
 
     useEffect(() => {
         UsersAPI.getRandomUsers(25)
@@ -26,7 +64,7 @@ function Directory() {
         <>
             <Navbar/>
             <Container >
-                <UserTable users={displayState}/>
+                <UserTable users={displayState} />
             </Container>
         </>
     )
