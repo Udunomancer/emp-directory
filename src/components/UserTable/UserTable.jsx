@@ -1,5 +1,6 @@
 import React from "react";
 import UserRow from "../UserRow/UserRow";
+import SortButton from "../SortButton/SortButton";
 
 function UserTable({users, sort}) {
   return (
@@ -7,10 +8,26 @@ function UserTable({users, sort}) {
       <thead>
         <tr>
           <th></th>
-          <th>Name <i className="fas fa-angle-up" id="name" value="up" onClick={sort}></i></th>
-          <th>Phone <i className="fas fa-angle-up" id="phone" value="up" onClick={sort}></i></th>
-          <th>Email <i className="fas fa-angle-up" id="email" value="up" onClick={sort}></i></th>
-          <th>Home Address <i className="fas fa-angle-up" id="address" value="up" onClick={sort}></i></th>
+          <th>
+              Name
+              <SortButton id="name" value="up" action={sort} />
+              <SortButton id="name" value="down" action={sort} />
+          </th>
+          <th>
+              Phone
+              <SortButton id="phone" value="up" action={sort} />
+              <SortButton id="phone" value="down" action={sort} />
+          </th>
+          <th>
+              Email
+              <SortButton id="email" value="up" action={sort} />
+              <SortButton id="email" value="down" action={sort} />
+          </th>
+          <th>
+              Home Address
+              <SortButton id="name" value="up" action={sort} />
+              <SortButton id="name" value="down" action={sort} />
+          </th>
         </tr>
       </thead>
       <tbody>

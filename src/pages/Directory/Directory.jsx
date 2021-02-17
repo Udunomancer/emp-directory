@@ -62,6 +62,17 @@ function Directory() {
 
     function sortUsers(event) {
         console.log(event.target);
+        // let value = event.target.attributes.value.value;
+        // let id = event.target.attributes.id.value;
+        // console.log(value)
+        // console.log(id);
+        // if(value === "up") {
+        //     console.log("Sort Up");
+
+        // }
+        // if(value === "down") {
+        //     console.log("Sort Down");
+        // }
     }
 
     return (
