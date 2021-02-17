@@ -27,37 +27,18 @@ function Directory() {
       picture: "#",
     },
   ]);
-  const [displayState, setDisplayState] = useState([
-    {
-      id: 1,
-      name: {
-        first: "First",
-        last: "Last",
-        title: "Title",
-      },
-      location: {
-        street: {
-          name: "Street",
-          number: "123",
-        },
-        city: "City",
-        state: "State",
-        zipcode: "Zipcode",
-      },
-      email: "Email",
-      phone: "(123)-456-7890",
-      picture: "#",
-    },
-  ]);
+  const [displayState, setDisplayState] = useState(usersState);
   const [searchState, setSearchState] = useState({
-    display: false
+    display: false,
+    nameSearch: "",
+    phoneSearch: "",
+    emailSearch: "",
+    addressSearch: ""
   });
 
   useEffect(() => {
     UsersAPI.getRandomUsers(25).then((res) => {
       setUsersState(res);
-      console.log("Users State:");
-      console.log(usersState);
     });
   }, []);
 
