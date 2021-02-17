@@ -10,23 +10,23 @@ function UserTable({users, sort}) {
           <th></th>
           <th>
               Name
-              <SortButton id="name" value="up" action={sort} />
               <SortButton id="name" value="down" action={sort} />
+              <SortButton id="name" value="up" action={sort} />
           </th>
           <th>
               Phone
-              <SortButton id="phone" value="up" action={sort} />
               <SortButton id="phone" value="down" action={sort} />
+              <SortButton id="phone" value="up" action={sort} />
           </th>
           <th>
               Email
-              <SortButton id="email" value="up" action={sort} />
               <SortButton id="email" value="down" action={sort} />
+              <SortButton id="email" value="up" action={sort} />
           </th>
           <th>
               Home Address
-              <SortButton id="name" value="up" action={sort} />
               <SortButton id="name" value="down" action={sort} />
+              <SortButton id="name" value="up" action={sort} />
           </th>
         </tr>
       </thead>
