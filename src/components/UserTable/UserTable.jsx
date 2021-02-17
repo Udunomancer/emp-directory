@@ -25,8 +25,8 @@ function UserTable({users, sort}) {
           </th>
           <th>
               Home Address
-              <SortButton id="name" value="down" action={sort} />
-              <SortButton id="name" value="up" action={sort} />
+              <SortButton id="address" value="down" action={sort} />
+              <SortButton id="address" value="up" action={sort} />
           </th>
         </tr>
       </thead>

@@ -66,43 +66,31 @@ function Directory() {
         let sortingArray = displayState;
         
         sortingArray.sort(function(a, b) {
-            let itemA;
-            let itemB
-            if(value === "up") {
-                itemA = a.name.first;
-                itemB = b.name.first;
+            let itemA = a.name.first.toUpperCase() + a.name.last.toUpperCase();
+            let itemB = b.name.first.toUpperCase() + b.name.last.toUpperCase();
+            if(id === "phone") {
+                itemA = a.phone.toUpperCase();
+                itemB = b.phone.toUpperCase();
             }
-            if(value==="down") {
-                itemA = b.name.first;
-                itemB = a.name.first;
+            if(id === "email") {
+                itemA = a.email.toUpperCase();
+                itemB = b.email.toUpperCase();
+            }
+            if(id === "address") {
+                itemA = a.location.street.number.toString() + a.location.street.name.toUpperCase();
+                itemB = b.location.street.number.toString() + b.location.street.name.toUpperCase();
             }
 
             if(itemA < itemB) {
-                return -1;
+                return (value === "up" ? 1 : -1);
             }
-
             if(itemA > itemB) {
-                return 1;
+                return (value === "up" ? -1 : 1);
             }
-
             return 0;
         });
 
         setDisplayState([...sortingArray]);
-
-        
-        
-        // let value = event.target.attributes.value.value;
-        // let id = event.target.attributes.id.value;
-        // console.log(value)
-        // console.log(id);
-        // if(value === "up") {
-        //     console.log("Sort Up");
-
-        // }
-        // if(value === "down") {
-        //     console.log("Sort Down");
-        // }
     }
 
     return (
