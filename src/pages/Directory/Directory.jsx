@@ -61,7 +61,37 @@ function Directory() {
     },[usersState]);
 
     function sortUsers(event) {
-        console.log(event.target);
+        let value = event.target.value;
+        let id = event.target.id;
+        let sortingArray = displayState;
+        
+        sortingArray.sort(function(a, b) {
+            let itemA;
+            let itemB
+            if(value === "up") {
+                itemA = a.name.first;
+                itemB = b.name.first;
+            }
+            if(value==="down") {
+                itemA = b.name.first;
+                itemB = a.name.first;
+            }
+
+            if(itemA < itemB) {
+                return -1;
+            }
+
+            if(itemA > itemB) {
+                return 1;
+            }
+
+            return 0;
+        });
+
+        setDisplayState([...sortingArray]);
+
+        
+        
         // let value = event.target.attributes.value.value;
         // let id = event.target.attributes.id.value;
         // console.log(value)
