@@ -60,11 +60,15 @@ function Directory() {
         setDisplayState(usersState);
     },[usersState]);
 
+    function sortUsers(event) {
+        console.log(event.target);
+    }
+
     return (
         <>
             <Navbar/>
             <Container >
-                <UserTable users={displayState} />
+                <UserTable sort={sortUsers} users={displayState} />
             </Container>
         </>
     )
