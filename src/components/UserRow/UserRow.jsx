@@ -8,14 +8,7 @@ function UserRow({ user }) {
       </td>
       <td>{`${user.name.first} ${user.name.last}`}</td>
       <td>
-        <li>
-          <strong>Home: </strong>
-          {user.phone.default}
-        </li>
-        <li>
-          <strong>Cell: </strong>
-          {user.phone.cell}
-        </li>
+        {user.phone}
       </td>
       <td>
         <a href={`mailto:${user.email}`}>{user.email}</a>
