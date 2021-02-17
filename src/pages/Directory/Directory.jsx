@@ -25,8 +25,8 @@ function Directory() {
     return (
         <>
             <Navbar/>
-            <Container>
-                <UserTable />
+            <Container >
+                <UserTable users={displayState}/>
             </Container>
         </>
     )

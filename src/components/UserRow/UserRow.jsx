@@ -1,6 +1,6 @@
 import React from "react";
 
-function UserRow() {
+function UserRow(props) {
     return (
         <tr>
             <td>John's picture</td>

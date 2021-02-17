@@ -1,7 +1,7 @@
 import React from "react";
 import UserRow from "../UserRow/UserRow";
 
-function UserTable(props) {
+function UserTable({users}) {
   return (
     <table class="table">
       <thead>
@@ -14,7 +14,7 @@ function UserTable(props) {
         </tr>
       </thead>
       <tbody>
-          <UserRow />
+          <UserRow key={users[0].id} user={users[0]}/>
       </tbody>
     </table>
   );
