@@ -58,6 +58,24 @@ function Directory() {
     setSearchState({...searchState, [name]: value});
   }
 
+  function handleSearchToggle(event) {
+    const value = !(event.target.value === "true");
+    if(value) {
+      setSearchState({
+        ...searchState,
+        display: value
+      })
+    } else {
+      setSearchState({
+        display: value, 
+        nameSearch: "", 
+        phoneSearch: "", 
+        emailSearch: "", 
+        addressSearch: ""
+      })
+    }
+  }
+
   function sortUsers(event) {
     let value = event.target.value;
     let id = event.target.id;
@@ -101,6 +119,7 @@ function Directory() {
       <Container>
         <UserTable 
           handleInputChange={handleInputChange}
+          handleSearchToggle={handleSearchToggle}
           searchState={searchState}
           sort={sortUsers} 
           users={displayState} 

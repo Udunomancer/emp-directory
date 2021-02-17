@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import UserRow from "../UserRow/UserRow";
 import SortButton from "../SortButton/SortButton";
 
-function UserTable({ users, sort, handleInputChange, searchState }) {
+function UserTable({ users, sort, handleInputChange, handleSearchToggle, searchState }) {
   const [showSearch, setShowSearch] = useState(false);
 
   function switchVisibility() {
@@ -16,9 +16,9 @@ function UserTable({ users, sort, handleInputChange, searchState }) {
           <th>
             <button
               className="btn fas fa-search"
-              value={false}
+              value={searchState.display}
               id="searchToggle"
-              onClick={switchVisibility}
+              onClick={handleSearchToggle}
             ></button>
           </th>
 
@@ -28,7 +28,7 @@ function UserTable({ users, sort, handleInputChange, searchState }) {
               <SortButton id="name" value="down" action={sort} />
               <SortButton id="name" value="up" action={sort} />
             </div>
-            {showSearch && (
+            {searchState.display && (
               <div>
                 <input
                   type="text"
@@ -46,7 +46,7 @@ function UserTable({ users, sort, handleInputChange, searchState }) {
               <SortButton id="phone" value="down" action={sort} />
               <SortButton id="phone" value="up" action={sort} />
             </div>
-            {showSearch && (
+            {searchState.display && (
               <div>
                 <input
                   type="text"
@@ -63,7 +63,7 @@ function UserTable({ users, sort, handleInputChange, searchState }) {
               <SortButton id="email" value="down" action={sort} />
               <SortButton id="email" value="up" action={sort} />
             </div>
-            {showSearch && (
+            {searchState.display && (
               <div>
                 <input 
                   type="text"
@@ -80,7 +80,7 @@ function UserTable({ users, sort, handleInputChange, searchState }) {
               <SortButton id="address" value="down" action={sort} />
               <SortButton id="address" value="up" action={sort} />
             </div>
-            {showSearch && (
+            {searchState.display && (
               <div>
                 <input 
                   type="text"
