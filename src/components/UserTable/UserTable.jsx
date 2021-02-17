@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import UserRow from "../UserRow/UserRow";
 import SortButton from "../SortButton/SortButton";
 
-function UserTable({ users, sort }) {
+function UserTable({ users, sort, handleInputChange, searchState }) {
   
   const [showSearch, setShowSearch] = useState(false);
 
@@ -31,7 +31,7 @@ function UserTable({ users, sort }) {
             </div>
           {showSearch &&
             <div>
-              <input type="text"></input>
+              <input type="text" name="nameSearch" value={searchState.nameSearch} onChange={handleInputChange}></input>
             </div>
           }
           </th>
@@ -44,7 +44,7 @@ function UserTable({ users, sort }) {
             </div>
             {showSearch &&
             <div>
-              <input type="text"></input>
+              <input type="text" ></input>
             </div>
 }
           </th>

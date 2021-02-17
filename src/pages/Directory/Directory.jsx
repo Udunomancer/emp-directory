@@ -52,6 +52,11 @@ function Directory() {
   //   setSearchState({...searchState}, {display: newDisplay});
   //   console.log(searchState.display);
   // }
+  function handleInputChange(event) {
+    const value = event.target.value;
+    const name = event.target.name;
+    setSearchState({...searchState, [name]: value});
+  }
 
   function sortUsers(event) {
     let value = event.target.value;
@@ -95,8 +100,8 @@ function Directory() {
       <Navbar />
       <Container>
         <UserTable 
-          search={setSearchState}
-          searchVals={searchState}
+          handleInputChange={handleInputChange}
+          searchState={searchState}
           sort={sortUsers} 
           users={displayState} 
         />
