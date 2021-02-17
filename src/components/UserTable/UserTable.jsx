@@ -11,10 +11,10 @@ function UserTable({
 }) {
 
   return (
-    <table className="table text-center">
+    <table className="table table-hover table-striped">
       <thead>
         <tr>
-          <th>
+          <th className="align-top" scope="col">
             <button
               className="btn fas fa-search"
               value={searchState.display}
@@ -22,18 +22,18 @@ function UserTable({
               onClick={handleSearchToggle}
             ></button>
           </th>
-
-          <th>
+          <th className="align-top" scope="col">
             <div>
               Name
               <SortButton id="name" value="down" action={sort} />
               <SortButton id="name" value="up" action={sort} />
             </div>
             {searchState.display && (
-              <div>
+              <div className="input-group">
                 <input
                   type="text"
                   name="nameSearch"
+                  className="form-control"
                   placeholder="Search Name"
                   value={searchState.nameSearch}
                   onChange={handleInputChange}
@@ -41,18 +41,18 @@ function UserTable({
               </div>
             )}
           </th>
-
-          <th>
+          <th scope="col">
             <div>
               Phone
               <SortButton id="phone" value="down" action={sort} />
               <SortButton id="phone" value="up" action={sort} />
             </div>
             {searchState.display && (
-              <div>
+              <div className="input-group">
                 <input
                   type="text"
                   name="phoneSearch"
+                  className="form-control"
                   placeholder="Search Phone"
                   value={searchState.phoneSearch}
                   onChange={handleInputChange}
@@ -60,17 +60,18 @@ function UserTable({
               </div>
             )}
           </th>
-          <th>
+          <th scope="col">
             <div>
               Email
               <SortButton id="email" value="down" action={sort} />
               <SortButton id="email" value="up" action={sort} />
             </div>
             {searchState.display && (
-              <div>
+              <div className="input-group">
                 <input
                   type="text"
                   name="emailSearch"
+                  className="form-control"
                   placeholder="Search Email"
                   value={searchState.emailSearch}
                   onChange={handleInputChange}
@@ -78,17 +79,18 @@ function UserTable({
               </div>
             )}
           </th>
-          <th>
+          <th scope="col">
             <div>
               Home Address
               <SortButton id="address" value="down" action={sort} />
               <SortButton id="address" value="up" action={sort} />
             </div>
             {searchState.display && (
-              <div>
+              <div className="input-group">
                 <input
                   type="text"
                   name="addressSearch"
+                  className="form-control"
                   placeholder="Search Street"
                   value={searchState.addressSearch}
                   onChange={handleInputChange}
@@ -104,7 +106,7 @@ function UserTable({
         ))}
         {users.length < 1 && (
           <tr>
-            <td colSpan="5">
+            <td className="text-center" colSpan="5">
               No Employees match the search terms provided
             </td>
           </tr>
