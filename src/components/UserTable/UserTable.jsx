@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import UserRow from "../UserRow/UserRow";
 import SortButton from "../SortButton/SortButton";
 
-function UserTable({ users, sort, handleInputChange, handleSearchToggle, searchState }) {
-  const [showSearch, setShowSearch] = useState(false);
-
-  function switchVisibility() {
-    setShowSearch(!showSearch);
-  }
+function UserTable({
+  users,
+  sort,
+  handleInputChange,
+  handleSearchToggle,
+  searchState,
+}) {
 
   return (
     <table className="table text-center">
@@ -67,7 +68,7 @@ function UserTable({ users, sort, handleInputChange, handleSearchToggle, searchS
             </div>
             {searchState.display && (
               <div>
-                <input 
+                <input
                   type="text"
                   name="emailSearch"
                   placeholder="Search Email"
@@ -85,7 +86,7 @@ function UserTable({ users, sort, handleInputChange, handleSearchToggle, searchS
             </div>
             {searchState.display && (
               <div>
-                <input 
+                <input
                   type="text"
                   name="addressSearch"
                   placeholder="Search Street"
@@ -101,6 +102,13 @@ function UserTable({ users, sort, handleInputChange, handleSearchToggle, searchS
         {users.map((user) => (
           <UserRow key={user.id} user={user} />
         ))}
+        {users.length < 1 && (
+          <tr>
+            <td colSpan="5">
+              No Employees match the search terms provided
+            </td>
+          </tr>
+        )}
       </tbody>
     </table>
   );
