@@ -11,10 +11,10 @@ function UserTable({
 }) {
 
   return (
-    <table className="table table-hover table-striped">
+    <table className="table table-hover table-striped mt-1">
       <thead>
         <tr>
-          <th className="align-top" scope="col">
+          <th className="align-top border-top-0" scope="col">
             <button
               className="btn fas fa-search"
               value={searchState.display}
@@ -22,7 +22,7 @@ function UserTable({
               onClick={handleSearchToggle}
             ></button>
           </th>
-          <th className="align-top" scope="col">
+          <th className="align-top border-top-0" scope="col">
             <div>
               Name
               <SortButton id="name" value="down" action={sort} />
@@ -41,7 +41,7 @@ function UserTable({
               </div>
             )}
           </th>
-          <th scope="col">
+          <th className="align-top border-top-0" scope="col">
             <div>
               Phone
               <SortButton id="phone" value="down" action={sort} />
@@ -60,7 +60,7 @@ function UserTable({
               </div>
             )}
           </th>
-          <th scope="col">
+          <th className="align-top border-top-0" scope="col">
             <div>
               Email
               <SortButton id="email" value="down" action={sort} />
@@ -79,7 +79,7 @@ function UserTable({
               </div>
             )}
           </th>
-          <th scope="col">
+          <th className="align-top border-top-0" scope="col">
             <div>
               Home Address
               <SortButton id="address" value="down" action={sort} />
