@@ -49,6 +49,9 @@ function Directory() {
       picture: "#",
     },
   ]);
+  const [searchState, setSearchState] = useState({
+    display: false
+  });
 
   useEffect(() => {
     UsersAPI.getRandomUsers(25).then((res) => {
@@ -61,6 +64,13 @@ function Directory() {
   useEffect(() => {
     setDisplayState(usersState);
   }, [usersState]);
+
+  // function displaySearch() {
+  //   let newDisplay = !searchState.display;
+  //   console.log(newDisplay);
+  //   setSearchState({...searchState}, {display: newDisplay});
+  //   console.log(searchState.display);
+  // }
 
   function sortUsers(event) {
     let value = event.target.value;
@@ -103,7 +113,12 @@ function Directory() {
     <>
       <Navbar />
       <Container>
-        <UserTable sort={sortUsers} users={displayState} />
+        <UserTable 
+          search={setSearchState}
+          searchVals={searchState}
+          sort={sortUsers} 
+          users={displayState} 
+        />
       </Container>
     </>
   );
