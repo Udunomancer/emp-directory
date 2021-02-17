@@ -3,7 +3,7 @@ import UserRow from "../UserRow/UserRow";
 
 function UserTable({users}) {
   return (
-    <table class="table">
+    <table className="table text-center">
       <thead>
         <tr>
           <th></th>
