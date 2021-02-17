@@ -33,6 +33,7 @@ function UserTable({ users, sort, handleInputChange, handleSearchToggle, searchS
                 <input
                   type="text"
                   name="nameSearch"
+                  placeholder="Search Name"
                   value={searchState.nameSearch}
                   onChange={handleInputChange}
                 ></input>
@@ -51,6 +52,7 @@ function UserTable({ users, sort, handleInputChange, handleSearchToggle, searchS
                 <input
                   type="text"
                   name="phoneSearch"
+                  placeholder="Search Phone"
                   value={searchState.phoneSearch}
                   onChange={handleInputChange}
                 ></input>
@@ -68,6 +70,7 @@ function UserTable({ users, sort, handleInputChange, handleSearchToggle, searchS
                 <input 
                   type="text"
                   name="emailSearch"
+                  placeholder="Search Email"
                   value={searchState.emailSearch}
                   onChange={handleInputChange}
                 ></input>
@@ -85,6 +88,7 @@ function UserTable({ users, sort, handleInputChange, handleSearchToggle, searchS
                 <input 
                   type="text"
                   name="addressSearch"
+                  placeholder="Search Street"
                   value={searchState.addressSearch}
                   onChange={handleInputChange}
                 ></input>
