@@ -7,7 +7,9 @@ function UserTable({users, sort}) {
     <table className="table text-center">
       <thead>
         <tr>
-          <th></th>
+          <th>
+              <button className="btn fas fa-search" id="searchToggle"></button>
+          </th>
           <th>
               Name
               <SortButton id="name" value="down" action={sort} />

@@ -1,106 +1,112 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Container from "../../components/Container/Container";
 import UserTable from "../../components/UserTable/UserTable";
 import UsersAPI from "../../utils/UsersAPI/UsersAPI";
 
 function Directory() {
-    
-    const [usersState, setUsersState] = useState([{
-        id: 1,
-        name: {
-            first: "First",
-            last: "Last",
-            title: "Title"
+  const [usersState, setUsersState] = useState([
+    {
+      id: 1,
+      name: {
+        first: "First",
+        last: "Last",
+        title: "Title",
+      },
+      location: {
+        street: {
+          name: "Street",
+          number: "123",
         },
-        location: {
-            street: {
-                name: "Street",
-                number: "123"
-            },
-            city: "City",
-            state: "State",
-            zipcode: "Zipcode"
+        city: "City",
+        state: "State",
+        zipcode: "Zipcode",
+      },
+      email: "Email",
+      phone: "(123)-456-7890",
+      picture: "#",
+    },
+  ]);
+  const [displayState, setDisplayState] = useState([
+    {
+      id: 1,
+      name: {
+        first: "First",
+        last: "Last",
+        title: "Title",
+      },
+      location: {
+        street: {
+          name: "Street",
+          number: "123",
         },
-        email: "Email",
-        phone: "(123)-456-7890",
-        picture: "#"
-    }]);
-    const [displayState, setDisplayState] = useState([{
-        id: 1,
-        name: {
-            first: "First",
-            last: "Last",
-            title: "Title"
-        },
-        location: {
-            street: {
-                name: "Street",
-                number: "123"
-            },
-            city: "City",
-            state: "State",
-            zipcode: "Zipcode"
-        },
-        email: "Email",
-        phone: "(123)-456-7890",
-        picture: "#"
-    }]);
+        city: "City",
+        state: "State",
+        zipcode: "Zipcode",
+      },
+      email: "Email",
+      phone: "(123)-456-7890",
+      picture: "#",
+    },
+  ]);
 
-    useEffect(() => {
-        UsersAPI.getRandomUsers(25)
-          .then(res => {
-              setUsersState(res);
-              console.log("Users State:");
-              console.log(usersState);
-            });
-    }, []);
+  useEffect(() => {
+    UsersAPI.getRandomUsers(25).then((res) => {
+      setUsersState(res);
+      console.log("Users State:");
+      console.log(usersState);
+    });
+  }, []);
 
-    useEffect(() => {
-        setDisplayState(usersState);
-    },[usersState]);
+  useEffect(() => {
+    setDisplayState(usersState);
+  }, [usersState]);
 
-    function sortUsers(event) {
-        let value = event.target.value;
-        let id = event.target.id;
-        let sortingArray = displayState;
-        
-        sortingArray.sort(function(a, b) {
-            let itemA = a.name.first.toUpperCase() + a.name.last.toUpperCase();
-            let itemB = b.name.first.toUpperCase() + b.name.last.toUpperCase();
-            if(id === "phone") {
-                itemA = a.phone.toUpperCase();
-                itemB = b.phone.toUpperCase();
-            }
-            if(id === "email") {
-                itemA = a.email.toUpperCase();
-                itemB = b.email.toUpperCase();
-            }
-            if(id === "address") {
-                itemA = a.location.street.number.toString() + a.location.street.name.toUpperCase();
-                itemB = b.location.street.number.toString() + b.location.street.name.toUpperCase();
-            }
+  function sortUsers(event) {
+    let value = event.target.value;
+    let id = event.target.id;
+    let sortingArray = displayState;
 
-            if(itemA < itemB) {
-                return (value === "up" ? 1 : -1);
-            }
-            if(itemA > itemB) {
-                return (value === "up" ? -1 : 1);
-            }
-            return 0;
-        });
+    sortingArray.sort(function (a, b) {
+      let itemA = a.name.first.toUpperCase() + a.name.last.toUpperCase();
+      let itemB = b.name.first.toUpperCase() + b.name.last.toUpperCase();
+      if (id === "phone") {
+        itemA = a.phone.toUpperCase();
+        itemB = b.phone.toUpperCase();
+      }
+      if (id === "email") {
+        itemA = a.email.toUpperCase();
+        itemB = b.email.toUpperCase();
+      }
+      if (id === "address") {
+        itemA =
+          a.location.street.number.toString() +
+          a.location.street.name.toUpperCase();
+        itemB =
+          b.location.street.number.toString() +
+          b.location.street.name.toUpperCase();
+      }
 
-        setDisplayState([...sortingArray]);
-    }
+      if (itemA < itemB) {
+        return value === "up" ? 1 : -1;
+      }
+      if (itemA > itemB) {
+        return value === "up" ? -1 : 1;
+      }
+      return 0;
+    });
 
-    return (
-        <>
-            <Navbar/>
-            <Container >
-                <UserTable sort={sortUsers} users={displayState} />
-            </Container>
-        </>
-    )
+    setDisplayState([...sortingArray]);
+  }
+
+  return (
+    <>
+      <Navbar />
+      <Container>
+        <UserTable sort={sortUsers} users={displayState} />
+      </Container>
+    </>
+  );
 }
 
 export default Directory;
