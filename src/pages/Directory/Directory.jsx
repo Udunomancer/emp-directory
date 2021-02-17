@@ -46,12 +46,22 @@ function Directory() {
     setDisplayState(usersState);
   }, [usersState]);
 
-  // function displaySearch() {
-  //   let newDisplay = !searchState.display;
-  //   console.log(newDisplay);
-  //   setSearchState({...searchState}, {display: newDisplay});
-  //   console.log(searchState.display);
-  // }
+  useEffect(() => {
+    if(searchState.display) {
+      const filteredArray = usersState.filter(function(user) {
+        return (
+          (user.name.first + " " + user.name.last).toUpperCase().includes(searchState.nameSearch.toUpperCase())
+          && user.phone.toUpperCase().includes(searchState.phoneSearch.toUpperCase())
+          && user.email.toUpperCase().includes(searchState.emailSearch.toUpperCase())
+          && (user.location.street.number + " " + user.location.street.name).toUpperCase().includes(searchState.addressSearch.toUpperCase())
+        )
+      })
+      setDisplayState(filteredArray);
+    } else {
+      setDisplayState(usersState);
+    }
+  }, [searchState])
+
   function handleInputChange(event) {
     const value = event.target.value;
     const name = event.target.name;
