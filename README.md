@@ -6,7 +6,7 @@
 
 Application that will allow a user to view a companies employees and their contact information.  Should provide user with the ability to sort ascending/descending on each column values, or search within columns for values matching search terms.  App built using React.
 
-Deployed Site: 
+Deployed Site: [https://udunomancer.github.io/emp-directory]
 
 Site Repository: [https://github.com/Udunomancer/emp-directory](https://github.com/Udunomancer/emp-directory)
 
