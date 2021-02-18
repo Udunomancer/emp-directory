@@ -29,7 +29,7 @@ Site Repository: [https://github.com/Udunomancer/emp-directory](https://github.c
 
 ## <a name="usage"></a> Usage
 
-* User should be able to view the application by navigating to []()
+* User should be able to view the application by navigating to [https://udunomancer.github.io/emp-directory](https://udunomancer.github.io/emp-directory)
     * When the page loads, random employee data should load via API to populate page.
 * When a user clicks on either up or down button next to a column header, the table should be sorted by the values in that column
     * Down arrow will sort from A/0 > Z/9
