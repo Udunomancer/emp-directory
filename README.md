@@ -56,6 +56,7 @@ To confirm functionality, deploy site and:
 * Confirm that random user data is loaded from the API
 * Random user data is displayed on the page
 * Using the sort buttons sorts the table based on the column values in the correct order (ascending/descending)
+* Entering data into search fields will display only employees with matching data, and results are responsive to new search terms
 * Clicking the magnifying glass:
     * Displays the search fields if hidden
     * Hides the search fields if displaying, and clears current searh terms
