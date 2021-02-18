@@ -1,9 +1,12 @@
 import './App.css';
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import Directory from "./pages/Directory/Directory";
 
 function App() {
   return (
-    <Directory/>
+    <Router>
+        <Route exact path="/" component={Directory} />
+    </Router>
   );
 }
 
