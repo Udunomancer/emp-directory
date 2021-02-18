@@ -5,7 +5,7 @@ import Directory from "./pages/Directory/Directory";
 function App() {
   return (
     <Router>
-        <Route exact path="/" component={Directory} />
+        <Route path="/*" component={Directory} />
     </Router>
   );
 }
